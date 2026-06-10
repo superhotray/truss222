@@ -135,47 +135,60 @@ export default function App() {
            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
             <h3 className="text-2xl font-display font-semibold text-white flex items-center gap-3">
                <FlaskConical className="w-6 h-6 text-emerald-400" />
-               結構原理概覽
+               結構原理概覽：桁架 (Truss)
             </h3>
            </div>
            
-           <div className="bg-gradient-to-br from-slate-900 to-slate-800/50 border border-slate-700/50 rounded-2xl p-8 relative overflow-hidden">
-               {/* decorative mesh background could go here */}
-               <div className="grid md:grid-cols-2 gap-12 relative z-10">
-                  <div>
-                    <h4 className="text-xl font-display font-semibold text-emerald-400 mb-4">為何使用「桁架 (Truss)」？</h4>
-                    <p className="text-slate-300 leading-relaxed mb-6">
-                      桁架結構是由多個直桿組成、以「三角形」為基礎單元的骨架。三角形是幾何中唯一只要邊長確定、形狀就無法輕易改變的形狀。這種特性讓桁架橋即使材料輕量，也能承受極大的重量和跨越極長的距離。
-                    </p>
-                    <div className="bg-slate-950/50 p-4 rounded-lg border border-slate-800">
-                      <p className="text-sm text-slate-400 font-mono">
-                        "在工程設計中，我們嘗試消除桿件的『彎矩』，將力量轉化為純粹的『張力(拉伸)』與『壓力(壓縮)』。"
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex flex-col justify-center">
-                     {/* Abstract illustration of a truss segment using simple divs */}
-                     <div className="relative w-full aspect-[2/1] max-w-sm mx-auto p-4 border border-slate-700/50 rounded-xl bg-slate-950/80 flex items-center justify-center">
-                        <div className="relative w-full h-full">
-                           {/* Bottom string */}
-                           <div className="absolute bottom-4 left-4 right-4 h-1 bg-emerald-500/80 rounded"></div>
-                           {/* Top string */}
-                           <div className="absolute top-4 left-1/4 right-1/4 h-1 bg-rose-500/80 rounded shadow-[0_0_10px_rgba(244,63,94,0.5)]"></div>
-                           
-                           {/* Left diagonal */}
-                           <div className="absolute top-4 bottom-4 left-[24%] w-1 bg-slate-400 -rotate-[35deg] origin-bottom shadow-sm"></div>
-                           <div className="absolute top-4 bottom-4 left-[24%] w-1 bg-slate-400 rotate-[35deg] origin-top shadow-sm"></div>
-                           
-                           {/* Right diagonal */}
-                           <div className="absolute top-4 bottom-4 right-[24%] w-1 bg-slate-400 rotate-[35deg] origin-bottom shadow-sm"></div>
-                           <div className="absolute top-4 bottom-4 right-[24%] w-1 bg-slate-400 -rotate-[35deg] origin-top shadow-sm"></div>
+           <div className="grid md:grid-cols-2 gap-6">
+              {/* 1. 基本定義與構造 */}
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800/50 border border-slate-700/50 rounded-2xl p-6 hover:border-emerald-500/30 transition-colors">
+                 <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-700/80">
+                   <div className="w-8 h-8 rounded-lg bg-emerald-950 flex items-center justify-center text-emerald-400 font-mono font-bold">1</div>
+                   <h4 className="text-lg font-display font-semibold text-slate-100">基本定義與構造</h4>
+                 </div>
+                 <ul className="space-y-3 text-slate-300 text-sm leading-relaxed">
+                   <li><strong className="text-emerald-300">核心概念：</strong>桁架是由「二力元件」（僅在兩個端點受力的元件）組合而成，整體視為單一物體的結構。</li>
+                   <li><strong className="text-emerald-300">常見型態：</strong>通常由直桿元件組成五個以上的三角形單位，並在各元件末端的「節點」（頂點）互相連接。</li>
+                 </ul>
+              </div>
 
-                           <div className="absolute inset-x-0 bottom-0 text-center font-mono text-[10px] text-emerald-400 opacity-60">TENSION (張力)</div>
-                           <div className="absolute inset-x-0 top-0 text-center font-mono text-[10px] text-rose-400 opacity-60">COMPRESSION (壓力)</div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+              {/* 2. 受力特性 */}
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800/50 border border-slate-700/50 rounded-2xl p-6 hover:border-blue-500/30 transition-colors">
+                 <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-700/80">
+                   <div className="w-8 h-8 rounded-lg bg-blue-950 flex items-center justify-center text-blue-400 font-mono font-bold">2</div>
+                   <h4 className="text-lg font-display font-semibold text-slate-100">受力特性</h4>
+                 </div>
+                 <ul className="space-y-3 text-slate-300 text-sm leading-relaxed">
+                   <li><strong className="text-blue-300">只受推拉力：</strong>外力與反作用力僅作用於端點，因此元件只會承受拉力或壓力。</li>
+                   <li><strong className="text-blue-300">不傳遞轉矩：</strong>桁架的節點被視為「旋轉接點」，因此元件受到的轉矩（扭力）不會傳遞到其他元件上。</li>
+                 </ul>
+              </div>
+
+              {/* 3. 分類方式 */}
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800/50 border border-slate-700/50 rounded-2xl p-6 hover:border-purple-500/30 transition-colors">
+                 <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-700/80">
+                   <div className="w-8 h-8 rounded-lg bg-purple-950 flex items-center justify-center text-purple-400 font-mono font-bold">3</div>
+                   <h4 className="text-lg font-display font-semibold text-slate-100">分類方式</h4>
+                 </div>
+                 <ul className="space-y-3 text-slate-300 text-sm leading-relaxed">
+                   <li><strong className="text-purple-300">平面桁架：</strong>所有節點與元件都位於同一個二維平面上。</li>
+                   <li><strong className="text-purple-300">空間桁架：</strong>節點與元件延伸至三維空間（立體結構）。</li>
+                 </ul>
+              </div>
+
+              {/* 4. 各部位專有名詞 */}
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800/50 border border-slate-700/50 rounded-2xl p-6 hover:border-rose-500/30 transition-colors">
+                 <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-700/80">
+                   <div className="w-8 h-8 rounded-lg bg-rose-950 flex items-center justify-center text-rose-400 font-mono font-bold">4</div>
+                   <h4 className="text-lg font-display font-semibold text-slate-100">各部位專有名詞</h4>
+                 </div>
+                 <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-3 text-slate-300 text-sm leading-relaxed">
+                   <li className="bg-slate-950/50 p-2 rounded border border-slate-800/50"><strong className="text-rose-300 block mb-1">上弦杆 (Top chord)</strong>位於最上方的桿件，主要承受壓力。</li>
+                   <li className="bg-slate-950/50 p-2 rounded border border-slate-800/50"><strong className="text-rose-300 block mb-1">下弦杆 (Bottom chord)</strong>位於最下方的桿件，主要承受拉力。</li>
+                   <li className="bg-slate-950/50 p-2 rounded border border-slate-800/50"><strong className="text-rose-300 block mb-1">梁腹 (Web)</strong>位於上下弦杆中間的桿件。</li>
+                   <li className="bg-slate-950/50 p-2 rounded border border-slate-800/50"><strong className="text-rose-300 block mb-1">桁格 (Panel)</strong>梁腹與梁腹之間所形成的空間。</li>
+                 </ul>
+              </div>
            </div>
         </section>
 
