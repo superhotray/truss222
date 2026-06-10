@@ -204,33 +204,15 @@ export default function App() {
                 <div></div>
               </div>
 
-              {/* Redirect Button Area */}
-              <div className="relative w-full py-32 flex flex-col items-center justify-center bg-gradient-to-b from-[#0b1120] to-[#030712] border-t border-slate-800/50">
-                
-                <div className="bg-cyan-950/40 p-6 rounded-full border border-cyan-800/40 mb-8 relative">
-                  <div className="absolute inset-0 rounded-full animate-ping bg-cyan-500/10"></div>
-                  <MonitorPlay className="w-16 h-16 text-cyan-400 relative z-10" />
-                </div>
-                
-                <h4 className="text-3xl font-display font-semibold text-white mb-6 tracking-wide drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]">
-                  啟動線上結構模擬環境
-                </h4>
-                
-                <p className="text-slate-400 text-center max-w-lg mb-10 text-lg leading-relaxed">
-                  準備好測試你的設計了嗎？點擊下方按鈕前往獨立的模擬終端，進行結構負載分析與應力測試。
-                </p>
-
-                <a 
-                  href="https://ai.studio/apps/8167b053-fd39-4e5d-9fde-d6bf05ec84d8?fullscreenApplet=true"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center px-10 py-5 font-bold text-slate-900 transition-all duration-300 bg-cyan-400 font-display rounded-xl hover:bg-cyan-300 hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 overflow-hidden shadow-[0_0_40px_rgba(34,211,238,0.3)] hover:shadow-[0_0_60px_rgba(34,211,238,0.5)]"
-                >
-                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
-                  <span className="flex items-center gap-3 text-lg relative z-10">
-                    開啟模擬終端 <ExternalLink className="w-6 h-6 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </a>
+              {/* The Sandbox iframe */}
+              <div className="relative w-full" style={{ height: '700px' }}>
+                <iframe 
+                  src="https://superhotray.github.io/truss/" 
+                  className="w-full h-full border-none"
+                  title="Bridge Simulation Environment"
+                  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                ></iframe>
               </div>
 
            </div>
